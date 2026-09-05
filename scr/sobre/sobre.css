@@ -10,14 +10,9 @@
   --branco: #ffffff;
 }
 
-/* ========================================
-   RESET
-========================================= */
-
 * {
   margin: 0;
   padding: 0;
-
   box-sizing: border-box;
 }
 
@@ -27,48 +22,35 @@ html {
 
 body {
   font-family: "Roboto Mono", monospace;
-
   background-color: #f4f4f4;
-
   color: #222;
 }
 
-/* ========================================
-   HEADER
-========================================= */
+/* HEADER */
 
 .header-menu {
   width: 100%;
-
   display: flex;
-
   align-items: center;
   justify-content: space-between;
-
   padding: 5px 5%;
-
   background-color: var(--cor-secundaria);
-
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .logo-empresa img {
   height: 2.5rem;
-
   display: block;
 }
 
 .btns-header {
   display: flex;
-
   gap: 2rem;
 }
 
 .btns-header a {
   color: var(--cor-texto);
-
   text-decoration: none;
-
   transition: 0.3s ease;
 }
 
@@ -77,35 +59,23 @@ body {
   color: var(--cor-primaria);
 }
 
-/* ========================================
-   HERO
-========================================= */
+/*  HERO  */
 
 .sobre-hero {
   position: relative;
-
   min-height: 420px;
-
   display: flex;
-
   align-items: flex-end;
-
   padding: 5rem 5%;
-
   background-image: url("img/sobre-nos-img.png");
-
   background-size: cover;
-
   background-position: center;
-
   overflow: hidden;
 }
 
 .sobre-hero-overlay {
   position: absolute;
-
   inset: 0;
-
   background: linear-gradient(
     to right,
     rgba(20, 15, 30, 0.95),
@@ -115,135 +85,98 @@ body {
 
 .sobre-hero-conteudo {
   position: relative;
-
   z-index: 2;
-
   max-width: 800px;
-
   color: white;
 }
 
 .sobre-hero-conteudo > span {
   color: var(--cor-secundaria);
-
   font-size: 0.9rem;
-
   font-weight: 700;
-
   text-transform: uppercase;
-
   letter-spacing: 2px;
 }
 
 .sobre-hero-conteudo h1 {
   margin: 0.7rem 0 1rem;
-
   font-size: clamp(2.5rem, 6vw, 5rem);
 }
 
 .sobre-hero-conteudo p {
   max-width: 650px;
-
   color: #dddddd;
-
   line-height: 1.6;
 }
 
-/* ========================================
-   HISTÓRIA
-========================================= */
+/* HISTÓRIA */
 
 .historia {
   width: 100%;
-
   padding: 5rem 5%;
-
   background-color: white;
 }
 
 .historia-container {
   max-width: 1400px;
-
   margin: 0 auto;
-
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   align-items: center;
-
   gap: 4rem;
 }
 
 .historia-imagem img {
   width: 100%;
-
   height: 500px;
-
   object-fit: cover;
-
   display: block;
-
   border-radius: 24px;
 }
 
 .subtitulo {
   color: var(--cor-primaria);
-
   font-weight: 700;
 }
 
 .historia-conteudo h2 {
   margin: 0.7rem 0 1.5rem;
-
   font-size: 2.3rem;
 }
 
 .historia-conteudo p {
   margin-bottom: 1rem;
-
   color: #565656;
-
   line-height: 1.8;
 }
 
-/* ========================================
-   PROPÓSITO
-========================================= */
+/* PROPÓSITO */
 
 .proposito {
   width: 100%;
-
   padding: 5rem 5%;
-
   background-color: var(--fundo-escuro);
 }
 
 .proposito-container {
   max-width: 1400px;
-
   margin: 0 auto;
 }
 
 .proposito-header {
   max-width: 750px;
-
   margin: 0 auto 3rem;
-
   text-align: center;
 }
 
 .proposito-header > span {
   color: var(--cor-secundaria);
-
   font-weight: 700;
 }
 
 .proposito-header h2 {
   margin: 0.7rem 0 1rem;
-
   color: white;
-
   font-size: 2.4rem;
 }
 
@@ -251,27 +184,19 @@ body {
   color: #c7c7c7;
 }
 
-/* ========================================
-   VALORES
-========================================= */
+/* VALORES */
 
 .valores-grid {
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
-
   gap: 2rem;
 }
 
 .valor-card {
   padding: 2rem;
-
   background-color: var(--fundo-card);
-
   border: 1px solid rgba(255, 255, 255, 0.08);
-
   border-radius: 18px;
-
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
@@ -279,73 +204,53 @@ body {
 
 .valor-card:hover {
   transform: translateY(-8px);
-
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
 }
 
 .valor-card i {
   display: inline-block;
-
   margin-bottom: 1.3rem;
-
   color: var(--cor-secundaria);
-
   font-size: 2rem;
 }
 
 .valor-card h3 {
   margin-bottom: 0.8rem;
-
   color: white;
-
   font-size: 1.3rem;
 }
 
 .valor-card p {
   color: #bdbdbd;
-
   line-height: 1.7;
 }
 
-/* ========================================
-   NÚMEROS
-========================================= */
+/*  NÚMEROS */
 
 .numeros {
   width: 100%;
-
   padding: 4rem 5%;
-
   background-color: var(--cor-primaria);
 }
 
 .numeros-container {
   max-width: 1400px;
-
   margin: 0 auto;
-
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
-
   gap: 2rem;
-
   text-align: center;
 }
 
 .numero-item {
   position: relative;
-
   display: flex;
-
   flex-direction: column;
-
   gap: 0.5rem;
 }
 
 .numero-item strong {
   color: var(--cor-secundaria);
-
   font-size: 3rem;
 }
 
@@ -355,120 +260,83 @@ body {
 
 .numero-item:not(:last-child)::after {
   content: "";
-
   position: absolute;
-
   right: -1rem;
-
   top: 50%;
-
   transform: translateY(-50%);
-
   width: 1px;
-
   height: 60%;
-
   background-color: rgba(255, 255, 255, 0.25);
 }
 
-/* ========================================
-   MANIFESTO
-========================================= */
+/* MANIFESTO */
 
 .manifesto {
   width: 100%;
-
   padding: 6rem 5%;
-
   background-color: #f4f4f4;
 }
 
 .manifesto-container {
   max-width: 950px;
-
   margin: 0 auto;
-
   text-align: center;
 }
 
 .manifesto-container > span {
   color: var(--cor-primaria);
-
   font-weight: 700;
 }
 
 .manifesto-container h2 {
   margin: 1rem 0 1.5rem;
-
   font-size: clamp(2rem, 4vw, 3.3rem);
-
   line-height: 1.2;
 }
 
 .manifesto-container p {
   max-width: 750px;
-
   margin: 0 auto 2rem;
-
   color: #606060;
-
   line-height: 1.8;
 }
 
 .manifesto-container a {
   display: inline-block;
-
   padding: 12px 22px;
-
   background-color: var(--cor-primaria);
-
   border-radius: 10px;
-
   color: white;
-
   font-weight: 700;
-
   text-decoration: none;
-
   transition: 0.3s ease;
 }
 
 .manifesto-container a:hover {
   transform: translateY(-3px);
-
   background-color: #6848df;
 }
 
-/* ========================================
-   FOOTER
-========================================= */
+/* FOOTER */
 
 .footer {
   width: 100%;
-
   padding: 2.5rem 5% 1.5rem;
-
   background-color: #0f0d15;
 }
 
 .footer-container {
   max-width: 1400px;
-
   margin: 0 auto;
-
   display: flex;
-
   align-items: center;
   justify-content: space-between;
-
   gap: 2rem;
 }
 
 .footer-marca {
   display: flex;
-
   align-items: center;
-
   gap: 0.8rem;
 }
 
@@ -478,21 +346,17 @@ body {
 
 .footer-marca span {
   color: white;
-
   font-weight: 700;
 }
 
 .footer-nav {
   display: flex;
-
   gap: 1.5rem;
 }
 
 .footer-nav a {
   color: #bdbdbd;
-
   text-decoration: none;
-
   transition: 0.3s ease;
 }
 
@@ -502,13 +366,11 @@ body {
 
 .footer-social {
   display: flex;
-
   gap: 1rem;
 }
 
 .footer-social a {
   color: white;
-
   font-size: 1.4rem;
 }
 
@@ -518,25 +380,18 @@ body {
 
 .footer-bottom {
   max-width: 1400px;
-
   margin: 2rem auto 0;
-
   padding-top: 1.5rem;
-
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-
   text-align: center;
 }
 
 .footer-bottom p {
   color: #7f7f7f;
-
   font-size: 0.85rem;
 }
 
-/* ========================================
-   RESPONSIVIDADE
-========================================= */
+/* RESPONSIVIDADE */
 
 @media (max-width: 1024px) {
   .historia-container {
@@ -557,15 +412,12 @@ body {
 
   .header-menu {
     flex-direction: column;
-
     gap: 0.8rem;
-
     padding: 0.8rem 5%;
   }
 
   .btns-header {
     justify-content: center;
-
     gap: 1.4rem;
   }
 
@@ -573,7 +425,6 @@ body {
 
   .sobre-hero {
     min-height: 330px;
-
     padding: 4rem 6%;
   }
 
@@ -581,13 +432,11 @@ body {
 
   .historia-container {
     grid-template-columns: 1fr;
-
     gap: 2.5rem;
   }
 
   .historia-imagem img {
     height: auto;
-
     aspect-ratio: 4 / 3;
   }
 
@@ -611,13 +460,11 @@ body {
 
   .footer-container {
     flex-direction: column;
-
     text-align: center;
   }
 
   .footer-nav {
     justify-content: center;
-
     flex-wrap: wrap;
   }
 }
@@ -625,7 +472,6 @@ body {
 @media (max-width: 480px) {
   .btns-header {
     flex-wrap: wrap;
-
     gap: 0.8rem;
   }
 
@@ -635,7 +481,6 @@ body {
 
   .sobre-hero {
     min-height: 300px;
-
     padding: 3rem 5%;
   }
 
@@ -661,7 +506,6 @@ body {
 
   .numeros-container {
     grid-template-columns: 1fr;
-
     gap: 2rem;
   }
 
