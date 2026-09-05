@@ -1,0 +1,642 @@
+:root {
+  --cor-primaria: #7d5cf2;
+  --cor-secundaria: #bff205;
+
+  --cor-texto: #454545;
+
+  --fundo-escuro: #1f1a2e;
+  --fundo-card: #2a2340;
+
+  --branco: #ffffff;
+}
+
+/* ========================================
+   RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto Mono", monospace;
+
+  background-color: var(--fundo-escuro);
+}
+
+/* ========================================
+   HEADER
+========================================= */
+
+.header-menu {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 5px 5%;
+
+  background-color: var(--cor-secundaria);
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.logo-empresa img {
+  height: 2.5rem;
+
+  display: block;
+}
+
+.btns-header {
+  display: flex;
+
+  gap: 2rem;
+}
+
+.btns-header a {
+  color: var(--cor-texto);
+
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.btns-header a:hover,
+.btns-header a.ativo {
+  color: var(--cor-primaria);
+}
+
+/* ========================================
+   HERO DA PÁGINA
+========================================= */
+
+.eventos-hero {
+  min-height: 350px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  padding: 4rem 5%;
+
+  background:
+    linear-gradient(to right, rgba(20, 15, 30, 0.95), rgba(20, 15, 30, 0.35)),
+    url("img/iguinho-e-lulinha.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.eventos-hero-conteudo {
+  max-width: 800px;
+
+  color: white;
+}
+
+.eventos-hero-conteudo > span {
+  color: var(--cor-secundaria);
+
+  font-size: 0.9rem;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+}
+
+.eventos-hero-conteudo h1 {
+  margin: 0.7rem 0 1rem;
+
+  font-size: clamp(2.5rem, 6vw, 5rem);
+}
+
+.eventos-hero-conteudo p {
+  max-width: 650px;
+
+  color: #dddddd;
+
+  line-height: 1.6;
+}
+
+/* ========================================
+   CATÁLOGO
+========================================= */
+
+.catalogo {
+  width: 100%;
+
+  padding: 5rem 5%;
+
+  background-color: var(--fundo-escuro);
+}
+
+.catalogo-container {
+  max-width: 1400px;
+
+  margin: 0 auto;
+}
+
+/* ========================================
+   CABEÇALHO DO CATÁLOGO
+========================================= */
+
+.catalogo-header {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 2rem;
+
+  margin-bottom: 3rem;
+}
+
+.subtitulo {
+  color: var(--cor-primaria);
+
+  font-size: 0.9rem;
+
+  font-weight: 700;
+}
+
+.catalogo-header h2 {
+  margin-top: 0.5rem;
+
+  color: white;
+
+  font-size: 2.2rem;
+}
+
+/* ========================================
+   FILTROS
+========================================= */
+
+.filtros {
+  display: flex;
+
+  gap: 1rem;
+}
+
+.filtros input,
+.filtros select {
+  padding: 12px 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 10px;
+
+  outline: none;
+
+  background-color: #2d2642;
+
+  color: white;
+
+  font-family: inherit;
+}
+
+.filtros input {
+  width: 230px;
+}
+
+.filtros input:focus,
+.filtros select:focus {
+  border-color: var(--cor-secundaria);
+}
+
+/* ========================================
+   GRID DOS EVENTOS
+========================================= */
+
+.eventos-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 2rem;
+}
+
+/* ========================================
+   CARD
+========================================= */
+
+.evento-card {
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background-color: var(--fundo-card);
+
+  border-radius: 20px;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.evento-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   IMAGEM DO CARD
+========================================= */
+
+.evento-imagem {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.evento-imagem img {
+  width: 100%;
+
+  height: 280px;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition: transform 0.5s ease;
+}
+
+.evento-card:hover .evento-imagem img {
+  transform: scale(1.04);
+}
+
+/* ========================================
+   STATUS
+========================================= */
+
+.evento-status {
+  position: absolute;
+
+  top: 15px;
+  left: 15px;
+
+  padding: 7px 12px;
+
+  border-radius: 20px;
+
+  background-color: var(--cor-secundaria);
+
+  color: #333;
+
+  font-size: 0.75rem;
+
+  font-weight: 700;
+}
+
+/* ========================================
+   INFORMAÇÕES
+========================================= */
+
+.evento-info {
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 1.3rem;
+}
+
+.evento-data {
+  margin-bottom: 0.7rem;
+
+  color: var(--cor-secundaria);
+
+  font-size: 0.9rem;
+
+  font-weight: 700;
+}
+
+.evento-info h3 {
+  margin-bottom: 0.5rem;
+
+  color: white;
+
+  font-size: 1.4rem;
+}
+
+.evento-info p {
+  margin-bottom: 1.5rem;
+
+  color: #c7c7c7;
+}
+
+.evento-info a {
+  align-self: flex-start;
+
+  margin-top: auto;
+
+  padding: 10px 18px;
+
+  border: 2px solid var(--cor-secundaria);
+
+  border-radius: 8px;
+
+  color: var(--cor-secundaria);
+
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.evento-info a:hover {
+  background-color: var(--cor-secundaria);
+
+  color: var(--cor-texto);
+}
+
+/* ========================================
+   CTA
+========================================= */
+
+.cta-eventos {
+  padding: 4rem 5%;
+
+  background-color: var(--cor-primaria);
+}
+
+.cta-container {
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 2rem;
+}
+
+.cta-container span {
+  color: var(--cor-secundaria);
+
+  font-weight: 700;
+}
+
+.cta-container h2 {
+  max-width: 700px;
+
+  margin-top: 0.5rem;
+
+  color: white;
+
+  font-size: 2rem;
+}
+
+.cta-container > a {
+  flex-shrink: 0;
+
+  padding: 12px 22px;
+
+  border-radius: 10px;
+
+  background-color: var(--cor-secundaria);
+
+  color: var(--cor-texto);
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.cta-container > a:hover {
+  transform: translateY(-3px);
+}
+
+/* ========================================
+   FOOTER
+========================================= */
+
+.footer {
+  width: 100%;
+
+  padding: 2.5rem 5% 1.5rem;
+
+  background-color: #0f0d15;
+}
+
+.footer-container {
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 2rem;
+}
+
+.footer-marca {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+}
+
+.footer-marca img {
+  width: 45px;
+}
+
+.footer-marca span {
+  color: white;
+
+  font-weight: 700;
+}
+
+.footer-nav {
+  display: flex;
+
+  gap: 1.5rem;
+}
+
+.footer-nav a {
+  color: #bdbdbd;
+
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: var(--cor-secundaria);
+}
+
+.footer-social {
+  display: flex;
+
+  gap: 1rem;
+}
+
+.footer-social a {
+  color: white;
+
+  font-size: 1.4rem;
+}
+
+.footer-social a:hover {
+  color: var(--cor-secundaria);
+}
+
+.footer-bottom {
+  max-width: 1400px;
+
+  margin: 2rem auto 0;
+
+  padding-top: 1.5rem;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: #7f7f7f;
+
+  font-size: 0.85rem;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 1024px) {
+  .eventos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .catalogo-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  /* HEADER */
+
+  .header-menu {
+    flex-direction: column;
+
+    gap: 0.8rem;
+
+    padding: 0.8rem 5%;
+  }
+
+  .btns-header {
+    justify-content: center;
+
+    gap: 1.4rem;
+  }
+
+  /* HERO */
+
+  .eventos-hero {
+    min-height: 300px;
+
+    padding: 3rem 6%;
+  }
+
+  /* FILTROS */
+
+  .filtros {
+    width: 100%;
+
+    flex-direction: column;
+  }
+
+  .filtros input,
+  .filtros select {
+    width: 100%;
+  }
+
+  /* EVENTOS */
+
+  .eventos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .evento-imagem img {
+    height: 350px;
+  }
+
+  /* CTA */
+
+  .cta-container {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  /* FOOTER */
+
+  .footer-container {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  .footer-nav {
+    flex-wrap: wrap;
+
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .btns-header {
+    gap: 0.8rem;
+
+    flex-wrap: wrap;
+  }
+
+  .btns-header a {
+    font-size: 0.75rem;
+  }
+
+  .catalogo {
+    padding: 3.5rem 5%;
+  }
+
+  .catalogo-header h2 {
+    font-size: 1.7rem;
+  }
+
+  .evento-imagem img {
+    height: 290px;
+  }
+
+  .evento-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .cta-eventos {
+    padding: 3rem 5%;
+  }
+
+  .cta-container h2 {
+    font-size: 1.6rem;
+  }
+}
