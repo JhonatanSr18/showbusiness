@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fabrica de Entretenimento</title>
+
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo Weltonjr.png') }}">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='home/main.css') }}">
+  <script src="{{ url_for('static', filename='home/main.js') }}" defer></script>
+
+  <!-- FONTS -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+  <!-- ICONES -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+</head>
+
+<body>
+  <header class="header-menu">
+    <div class="logo-empresa">
+      <img src="{{ url_for('static', filename='img/logo Weltonjr.png') }}" alt="site-logo" id="logo-fabrica">
+    </div>
+    <nav class="btns-header">
+      <a href="#inicio">Inicio</a>
+      <a href="#eventos">Eventos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contatos">Contatos</a>
+    </nav>
+  </header>
+  <section id="inicio" class="inicio-bg">
+    <div class="carousel">
+      <div class="slides">
+
+        <article class="slide ativo">
+          <img src="{{ url_for('static', filename='img/iguinho-e-lulinha.jpg') }}" alt="evento 1">
+          <div class="conteudo-slide">
+            <h1>Iguinho e Lulinha</h1>
+            <p>07 de Setembro • São miguel do Tocantins - TO</p>
+            <a href="#">Saiba mais</a>
+          </div>
+        </article>
+
+        <article class="slide">
+          <img src="{{ url_for('static', filename='img/Henry-Freitas.jpeg') }}" alt="evento 2">
+          <div class="conteudo-slide">
+            <h1>Henry Freitas</h1>
+            <p>17 de Setembro • Uruará - PA</p>
+            <a href="#">Saiba mais</a>
+          </div>
+        </article>
+
+        <article class="slide">
+          <img src="{{ url_for('static', filename='img/rey-vaqueiro.jpg') }}" alt="evento 3">
+          <div class="conteudo-slide">
+            <h1>Rey Vaqueiro</h1>
+            <p>18 de Setembro • Uruará - PA</p>
+            <a href="#">Saiba mais</a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="indicadores">
+        <button class="indicador ativo"></button>
+        <button class="indicador"></button>
+        <button class="indicador"></button>
+      </div>
+    </div>
+  </section>
+  <div class="faixa-marca">
+    <div class="faixa-track">
+      <div class="faixa-marca">
+        <div class="faixa-track">
+
+          <img src="{{ url_for('static', filename='img/logo Weltonjr.png') }}" alt="" class="logo-faixa">
+          <span>Fábrica de Entretenimento</span>
+
+          <img src="{{ url_for('static', filename='img/logo Weltonjr.png') }}" alt="" class="logo-faixa">
+          <span>Fábrica de Entretenimento</span>
+
+          <img src="{{ url_for('static', filename='img/logo Weltonjr.png') }}" alt="" class="logo-faixa">
+          <span>Fábrica de Entretenimento</span>
+
+          <img src="{{ url_for('static', filename='img/logo Weltonjr.png') }}" alt="" class="logo-faixa">
+          <span>Fábrica de Entretenimento</span>
+
+          <!-- cópia para o loop -->
+          <img src="{{ url_for('static', filename='img/logo Weltonjr.png') }}" alt="" class="logo-faixa">
+          <span>Fábrica de Entretenimento</span>
+
+          <img src="{{ url_for('static', filename='img/logo Weltonjr.png') }}" alt="" class="logo-faixa">
+          <span>Fábrica de Entretenimento</span>
+
+          <img src="{{ url_for('static', filename='img/logo Weltonjr.png') }}" alt="" class="logo-faixa">
+          <span>Fábrica de Entretenimento</span>
+
+          <img src="{{ url_for('static', filename='img/logo Weltonjr.png') }}" alt="" class="logo-faixa">
+          <span>Fábrica de Entretenimento</span>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <section class="proximos-eventos" id="eventos">
+    <div class="eventos-header">
+      <h2>Próximos Eventos</h2>
+      <p>Confira o que vem por aí</p>
+    </div>
+
+    <div class="eventos-grid">
+      <article class="evento-card">
+        <img src="{{ url_for('static', filename='img/iguinho-e-lulinha.jpg') }}" alt="evento 1">
+
+        <div class="evento-info">
+          <span class="evento-data">18 SET</span>
+
+          <h3>Iguinho e Lulinha</h3>
+
+          <p>Uruará - PA</p>
+
+          <a href="#">Ver evento</a>
+        </div>
+      </article>
+      <article class="evento-card">
+        <img src="{{ url_for('static', filename='img/Henry-Freitas.jpeg') }}" alt="evento 1">
+
+        <div class="evento-info">
+          <span class="evento-data">18 SET</span>
+
+          <h3>Henry Freitas</h3>
+
+          <p>Uruará - PA</p>
+
+          <a href="#">Ver evento</a>
+        </div>
+      </article>
+      <article class="evento-card">
+        <img src="{{ url_for('static', filename='img/rey-vaqueiro.jpg') }}" alt="evento 1">
+
+        <div class="evento-info">
+          <span class="evento-data">18 SET</span>
+
+          <h3>Rey Vaqueiro</h3>
+
+          <p>Uruará - PA</p>
+
+          <a href="#">Ver evento</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="ver-mais-eventos">
+      <a href="{{ url_for('eventos') }}">Ver mais eventos</a>
+    </div>
+  </section>
+  <section id="sobre" class="sobre">
+
+    <div class="sobre-container">
+
+      <div class="sobre-imagem">
+        <img src="{{ url_for('static', filename='img/sobre-nos-img.png') }}" alt="Eventos realizados pela empresa">
+      </div>
+
+      <div class="sobre-conteudo">
+
+        <span class="sobre-destaque">Sobre nós</span>
+
+        <h2>História da empresa</h2>
+
+        <p>
+          A Fábrica de Entretenimento nasceu há seis anos e vem se consolidando
+          como referência em produção artística e realização de eventos.
+          Em 2023, a empresa iniciou uma nova fase de profissionalização,
+          crescimento e expansão de seus serviços.
+        </p>
+
+        <p>
+          Nosso propósito é conectar talentos, marcas e público por meio de
+          experiências marcantes, inovadoras e produções de alto nível.
+        </p>
+
+        <a href="{{ url_for('sobre') }}" class="btn-sobre">Ver mais</a>
+
+      </div>
+
+  </section>
+  <section class="numeros">
+
+    <div class="numeros-container">
+
+      <div class="numero-item">
+        <strong>+50</strong>
+        <span>Eventos realizados</span>
+      </div>
+
+      <div class="numero-item">
+        <strong>+20</strong>
+        <span>Cidades atendidas</span>
+      </div>
+
+      <div class="numero-item">
+        <strong>+30</strong>
+        <span>Artistas</span>
+      </div>
+
+      <div class="numero-item">
+        <strong>+100 mil</strong>
+        <span>Pessoas alcançadas</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="contatos" class="contato">
+
+    <div class="contato-container">
+
+      <div class="contato-texto">
+        <span>Fale com a gente</span>
+
+        <h2>Quer levar um grande evento para sua cidade?</h2>
+
+        <p>
+          Entre em contato com a nossa equipe para parcerias,
+          produções, shows e oportunidades comerciais.
+        </p>
+      </div>
+
+      <div class="contato-links">
+
+        <a href="#" class="contato-item">
+          <i class="bi bi-whatsapp"></i>
+
+          <div>
+            <strong>WhatsApp</strong>
+            <span>Fale com nossa equipe</span>
+          </div>
+
+        </a>
+
+        <a href="#" class="contato-item">
+          <i class="bi bi-instagram"></i>
+
+          <div>
+            <strong>Instagram</strong>
+            <span>Acompanhe nossos eventos</span>
+          </div>
+
+        </a>
+
+        <a href="#" class="contato-item">
+          <i class="bi bi-envelope"></i>
+
+          <div>
+            <strong>E-mail</strong>
+            <span>Entre em contato comercial</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-marca">
+        <img src="img/logo weltonjr.png" alt="Logo da Fábrica de Entretenimento">
+        <span>Fábrica de Entretenimento</span>
+      </div>
+      <nav class="footer-nav">
+        <a href="#inicio">Início</a>
+        <a href="#eventos">Eventos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <div class="footer-social">
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Fábrica de Entretenimento. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+</body>
+
+</html>

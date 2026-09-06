@@ -1,0 +1,1484 @@
+:root {
+  --cor-primaria: #7d5cf2;
+  --cor-secundaria: #bff205;
+  --cor-detalhes: #274001;
+
+  --cor-texto: #274001;
+  --cor-texto-secunda: #454545;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #382d62;
+  font-family: "Roboto Mono", monospace;
+}
+
+/* ---------------- HEADER ----------------- */
+
+.header-menu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 5%;
+
+  background-color: #bff205;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 10;
+}
+
+.logo-empresa img {
+  height: 2.5rem;
+}
+
+.btns-header {
+  display: flex;
+  gap: 2rem;
+}
+
+.btns-header :hover {
+  color: var(--cor-primaria);
+  transform: translateY(-3px);
+}
+
+.btns-header a {
+  text-decoration: none;
+  color: #454545;
+}
+
+.btns-header a:active {
+  color: #7d5cf2;
+  transition: 0.5s;
+}
+
+/* --------- HERO + CARROSSEL --------- */
+
+.inicio-bg {
+  position: relative;
+  width: 100%;
+  padding: 2rem 0;
+  background-color: #5d49b8;
+  overflow: hidden;
+}
+
+.inicio-bg::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image: url("../img/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.8;
+
+  z-index: 0;
+}
+
+.carousel {
+  position: relative;
+  z-index: 1;
+
+  width: 90%;
+  height: 500px;
+  margin: 0 auto;
+
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.carousel {
+  margin: 2rem auto 0;
+
+  width: 90%;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 24px;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.slide.ativo {
+  opacity: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.conteudo-slide {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+
+  width: min(560px, 65%);
+  padding: 1.3rem 1.5rem 1.3rem;
+
+  color: white;
+}
+
+.conteudo-slide::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: #7d5cf2;
+  border-radius: 24px 24px 0 0;
+
+  transform: skewY(3deg);
+  transform-origin: left center;
+
+  z-index: -1;
+}
+
+.conteudo-slide h1 {
+  margin: 0 0 8px;
+}
+
+.conteudo-slide p {
+  margin: 0 0 18px;
+}
+
+.conteudo-slide a {
+  display: inline-block;
+
+  color: white;
+  text-decoration: none;
+
+  padding: 10px 18px;
+
+  border: 2px solid white;
+  border-radius: 8px;
+
+  transition: 0.3 ease;
+}
+
+.conteudo-slide a:hover {
+  background-color: #bff205;
+  border: 2px solid #7d5cf2;
+  color: #454545;
+}
+
+.indicadores {
+  position: absolute;
+
+  bottom: 20px;
+  right: 30px;
+
+  display: flex;
+  gap: 10px;
+
+  z-index: 5;
+}
+
+.indicador {
+  position: relative;
+
+  width: 40px;
+  height: 6px;
+
+  border: none;
+  border-radius: 10px;
+
+  background-color: rgba(255, 255, 255, 0.4);
+
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.indicador::after {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 0%;
+  height: 100%;
+
+  background-color: var(--cor-secundaria);
+}
+
+.indicador.ativo::after {
+  animation: carregarIndicador 4s linear forwards;
+}
+
+@keyframes carregarIndicador {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+/* CARROSSEL DIVISORIA LOGO + NOME */
+
+.faixa-marca {
+  width: 100%;
+  overflow: hidden;
+
+  padding: 4.1px;
+
+  background-color: #4f3aa8;
+}
+
+.faixa-track {
+  display: flex;
+  align-items: center;
+
+  gap: 35px;
+
+  width: max-content;
+
+  animation: moverFaixa 18s linear infinite;
+}
+
+.logo-faixa {
+  width: 42px;
+  height: auto;
+
+  flex-shrink: 0;
+}
+
+.faixa-track span {
+  color: white;
+
+  font-size: 1.2rem;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+@keyframes moverFaixa {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* CARDS EVENTOS */
+
+.eventos {
+  width: 100%;
+  padding: 5rem 5%;
+  background-color: #1f1a2e;
+}
+
+.eventos-header {
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+  justify-content: center;
+
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.eventos-header h2 {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.eventos-header p {
+  color: #bcbcbc;
+  font-size: 1rem;
+}
+
+.eventos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.evento-card {
+  background-color: #2a2340;
+  border-radius: 20px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.evento-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.evento-card img {
+  width: 100%;
+  height: 280px;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+.evento-data {
+  display: inline-block;
+
+  color: var(--cor-secundaria);
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  margin-bottom: 0.7rem;
+}
+
+.evento-info {
+  color: white;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+}
+
+.evento-info h3 {
+  color: white;
+
+  font-size: 1.4rem;
+
+  margin-bottom: 0.5rem;
+}
+
+.evento-info p {
+  color: #c7c7c7;
+
+  margin-bottom: 1.2rem;
+}
+
+.evento-info a {
+  display: inline-block;
+  padding: 10px 18px;
+  color: var(--cor-secundaria);
+  text-decoration: none;
+  border: 2px solid var(--cor-secundaria);
+  border-radius: 8px;
+  margin-top: auto;
+
+  transition: 0.3s ease;
+}
+
+.evento-info a:hover {
+  background-color: var(--cor-secundaria);
+  color: #274001;
+}
+
+.ver-mais-eventos {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 3rem;
+}
+
+.ver-mais-eventos a {
+  display: inline-block;
+
+  padding: 12px 24px;
+
+  color: var(--cor-secundaria);
+  text-decoration: none;
+
+  border: 2px solid var(--cor-secundaria);
+  border-radius: 10px;
+
+  transition: 0.3s ease;
+}
+
+.ver-mais-eventos a:hover {
+  background-color: var(--cor-primaria);
+  color: white;
+}
+
+/* SEÇÃO SOBRE NÓS */
+
+.sobre {
+  position: relative;
+
+  margin-top: 2rem;
+  width: 100%;
+  padding: 5rem 5%;
+
+  background-color: #f4f4f4;
+}
+
+.sobre-destaque {
+  color: var(--cor-primaria);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.sobre-conteudo p {
+  line-height: 1.5;
+}
+
+.sobre-conteudo h2 {
+  margin-bottom: 0.5rem;
+}
+
+.btn-sobre {
+  margin-top: 1.5rem;
+}
+
+.sobre-container {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+  gap: 4rem;
+}
+
+.sobre-imagem img {
+  width: 100%;
+  height: 450px;
+
+  object-fit: cover;
+
+  display: block;
+
+  border-radius: 24px;
+}
+
+.sobre-conteudo {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+.btn-sobre {
+  display: inline-block;
+
+  margin-top: 1.5rem;
+  padding: 12px 22px;
+
+  color: var(--cor-primaria);
+  text-decoration: none;
+
+  border: 2px solid var(--cor-primaria);
+  border-radius: 8px;
+
+  transition: 0.3s ease;
+}
+
+.btn-sobre:hover {
+  background-color: var(--cor-primaria);
+  color: white;
+}
+
+/* NUMEROS DA EMPRESA */
+
+.numeros {
+  width: 100%;
+
+  padding: 4rem 5%;
+
+  background-color: var(--cor-primaria);
+}
+
+.numeros-container {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 2rem;
+
+  text-align: center;
+}
+
+.numero-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 0.5rem;
+
+  position: relative;
+}
+
+.numero-item:not(:last-child)::after {
+  content: "";
+
+  position: absolute;
+
+  right: -1rem;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 1px;
+  height: 60%;
+
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.numero-item strong {
+  color: var(--cor-secundaria);
+
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.numero-item span {
+  color: white;
+
+  font-size: 1rem;
+}
+
+/* CONTATOS */
+
+.contato {
+  width: 100%;
+  padding: 5rem 5%;
+
+  background-color: #17151f;
+}
+
+.contato-container {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 4rem;
+
+  align-items: center;
+}
+
+.contato-texto > span {
+  color: var(--cor-secundaria);
+
+  font-weight: 700;
+}
+
+.contato-texto h2 {
+  color: white;
+
+  font-size: 2.4rem;
+
+  margin: 0.7rem 0 1rem;
+}
+
+.contato-texto p {
+  color: #bdbdbd;
+
+  line-height: 1.6;
+}
+
+.contato-links {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+}
+
+.contato-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 1rem;
+
+  padding: 1.2rem 1.4rem;
+
+  text-decoration: none;
+
+  background-color: #24202f;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+
+  transition: 0.3s ease;
+}
+
+.contato-item i {
+  color: var(--cor-secundaria);
+
+  font-size: 1.8rem;
+}
+
+.contato-item div {
+  display: flex;
+  flex-direction: column;
+}
+
+.contato-item strong {
+  color: white;
+
+  font-size: 1.1rem;
+
+  margin-bottom: 0.3rem;
+}
+
+.contato-item span {
+  color: #a9a9a9;
+
+  font-size: 0.9rem;
+}
+
+.contato-item:hover {
+  transform: translateX(8px);
+
+  border-color: var(--cor-secundaria);
+
+  background-color: #2c263b;
+}
+
+/* FOOTER */
+
+.footer {
+  width: 100%;
+  padding: 2.5rem 5% 1.5rem;
+
+  background-color: #0f0d15;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 2rem;
+}
+
+.footer-marca {
+  display: flex;
+  align-items: center;
+
+  gap: 0.8rem;
+}
+
+.footer-marca img {
+  width: 45px;
+}
+
+.footer-marca span {
+  color: white;
+  font-weight: 700;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-nav a {
+  color: #bdbdbd;
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: var(--cor-secundaria);
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-social a {
+  color: white;
+
+  font-size: 1.4rem;
+
+  transition: 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: var(--cor-secundaria);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  max-width: 1400px;
+
+  margin: 2rem auto 0;
+  padding-top: 1.5rem;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: #7f7f7f;
+
+  font-size: 0.85rem;
+}
+
+/* ==================================================
+   RESPONSIVIDADE
+================================================== */
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+  /* ---------- HEADER ---------- */
+
+  .header-menu {
+    padding: 5px 4%;
+  }
+
+  .btns-header {
+    gap: 1.3rem;
+  }
+
+  .btns-header a {
+    font-size: 0.9rem;
+  }
+
+  /* ---------- CARROSSEL PRINCIPAL ---------- */
+
+  .carousel {
+    width: 92%;
+    height: 430px;
+  }
+
+  .conteudo-slide {
+    width: min(500px, 70%);
+  }
+
+  .conteudo-slide h1 {
+    font-size: 1.6rem;
+  }
+
+  .conteudo-slide p {
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================================================
+   RESPONSIVIDADE DO SITE
+   Colocar TODO este bloco no FINAL do CSS
+========================================================= */
+
+/* =========================================================
+   TABLET / NOTEBOOK MENOR
+========================================================= */
+
+@media (max-width: 1024px) {
+  /* ---------------- HEADER ---------------- */
+
+  .header-menu {
+    padding: 5px 4%;
+  }
+
+  .btns-header {
+    gap: 1.3rem;
+  }
+
+  .btns-header a {
+    font-size: 0.9rem;
+  }
+
+  /* ---------------- HERO / CARROSSEL ---------------- */
+
+  .carousel {
+    width: 92%;
+    height: 430px;
+  }
+
+  .conteudo-slide {
+    width: min(500px, 70%);
+  }
+
+  .conteudo-slide h1 {
+    font-size: 1.6rem;
+  }
+
+  .conteudo-slide p {
+    font-size: 0.9rem;
+  }
+
+  /* ---------------- FAIXA DA MARCA ---------------- */
+
+  .faixa-track {
+    gap: 28px;
+  }
+
+  .logo-faixa {
+    width: 36px;
+  }
+
+  .faixa-track span {
+    font-size: 1rem;
+  }
+
+  /* ---------------- EVENTOS ---------------- */
+
+  .eventos {
+    padding: 4rem 4%;
+  }
+
+  .eventos-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .eventos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  /* ---------------- SOBRE ---------------- */
+
+  .sobre {
+    padding: 4rem 5%;
+  }
+
+  .sobre-container {
+    gap: 3rem;
+  }
+
+  .sobre-imagem img {
+    height: 400px;
+  }
+
+  .sobre-conteudo h2 {
+    font-size: 2rem;
+  }
+
+  /* ---------------- NÚMEROS ---------------- */
+
+  .numeros {
+    padding: 3.5rem 4%;
+  }
+
+  .numero-item strong {
+    font-size: 2.5rem;
+  }
+
+  /* ---------------- CONTATO ---------------- */
+
+  .contato {
+    padding: 4rem 5%;
+  }
+
+  .contato-container {
+    gap: 3rem;
+  }
+
+  .contato-texto h2 {
+    font-size: 2rem;
+  }
+
+  /* ---------------- FOOTER ---------------- */
+
+  .footer {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
+  .footer-nav {
+    gap: 1rem;
+  }
+}
+
+/* =========================================================
+   CELULAR / TABLET EM PÉ
+========================================================= */
+
+@media (max-width: 768px) {
+  /* ---------------- HEADER ---------------- */
+
+  .header-menu {
+    flex-direction: column;
+
+    gap: 0.8rem;
+
+    padding: 0.8rem 5%;
+  }
+
+  .logo-empresa img {
+    height: 2.2rem;
+  }
+
+  .btns-header {
+    width: 100%;
+
+    justify-content: center;
+
+    gap: 1.5rem;
+  }
+
+  .btns-header a {
+    font-size: 0.85rem;
+  }
+
+  /* ---------------- HERO / CARROSSEL ---------------- */
+
+  .inicio-bg {
+    padding: 1.5rem 0;
+  }
+
+  .carousel {
+    width: 94%;
+    height: 380px;
+
+    border-radius: 18px;
+  }
+
+  .conteudo-slide {
+    width: 75%;
+
+    padding: 1rem 1.2rem;
+  }
+
+  .conteudo-slide::before {
+    border-radius: 18px 18px 0 0;
+  }
+
+  .conteudo-slide h1 {
+    font-size: 1.3rem;
+  }
+
+  .conteudo-slide p {
+    font-size: 0.8rem;
+
+    margin-bottom: 12px;
+  }
+
+  .conteudo-slide a {
+    padding: 8px 14px;
+
+    font-size: 0.8rem;
+  }
+
+  .indicadores {
+    bottom: 14px;
+    right: 16px;
+  }
+
+  .indicador {
+    width: 30px;
+    height: 5px;
+  }
+
+  /* ---------------- FAIXA DA MARCA ---------------- */
+
+  .faixa-marca {
+    height: 60px;
+  }
+
+  .faixa-track {
+    gap: 22px;
+
+    animation-duration: 14s;
+  }
+
+  .logo-faixa {
+    width: 30px;
+  }
+
+  .faixa-track span {
+    font-size: 0.9rem;
+  }
+
+  /* ---------------- EVENTOS ---------------- */
+
+  .eventos {
+    padding: 4rem 6%;
+  }
+
+  .eventos-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .eventos-header h2 {
+    font-size: 2rem;
+  }
+
+  .eventos-header p {
+    font-size: 0.9rem;
+  }
+
+  .eventos-grid {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+  }
+
+  .evento-card {
+    width: 100%;
+  }
+
+  .evento-card img {
+    height: 350px;
+  }
+
+  .ver-mais-eventos {
+    margin-top: 2.5rem;
+  }
+
+  /* ---------------- SOBRE ---------------- */
+
+  .sobre {
+    padding: 4rem 6%;
+  }
+
+  .sobre-container {
+    grid-template-columns: 1fr;
+
+    gap: 2.5rem;
+  }
+
+  .sobre-imagem img {
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: 4 / 3;
+
+    object-fit: cover;
+  }
+
+  .sobre-conteudo h2 {
+    font-size: 2rem;
+  }
+
+  .sobre-conteudo p {
+    line-height: 1.6;
+  }
+
+  /* ---------------- NÚMEROS ---------------- */
+
+  .numeros {
+    padding: 3rem 6%;
+  }
+
+  .numeros-container {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 2.5rem 1rem;
+  }
+
+  .numero-item strong {
+    font-size: 2.4rem;
+  }
+
+  /*
+    Tiramos as divisórias porque em duas linhas
+    elas podem ficar em posições estranhas.
+  */
+
+  .numero-item::after {
+    display: none;
+  }
+
+  /* ---------------- CONTATO ---------------- */
+
+  .contato {
+    padding: 4rem 6%;
+  }
+
+  .contato-container {
+    grid-template-columns: 1fr;
+
+    gap: 2.5rem;
+  }
+
+  .contato-texto h2 {
+    font-size: 2rem;
+  }
+
+  .contato-item {
+    width: 100%;
+  }
+
+  /* ---------------- FOOTER ---------------- */
+
+  .footer-container {
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    gap: 1.5rem;
+  }
+
+  .footer-marca {
+    justify-content: center;
+  }
+
+  .footer-nav {
+    width: 100%;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 1rem 1.5rem;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    margin-top: 1.5rem;
+  }
+}
+
+/* =========================================================
+   CELULAR PEQUENO
+========================================================= */
+
+@media (max-width: 480px) {
+  /* ---------------- HEADER ---------------- */
+
+  .header-menu {
+    padding: 0.7rem 4%;
+  }
+
+  .logo-empresa img {
+    height: 2rem;
+  }
+
+  .btns-header {
+    gap: 0.8rem;
+
+    flex-wrap: wrap;
+  }
+
+  .btns-header a {
+    font-size: 0.75rem;
+  }
+
+  /* ---------------- HERO / CARROSSEL ---------------- */
+
+  .inicio-bg {
+    padding: 1rem 0;
+  }
+
+  .carousel {
+    width: 94%;
+    height: 330px;
+
+    border-radius: 16px;
+  }
+
+  .conteudo-slide {
+    width: 80%;
+
+    padding: 0.9rem 1rem 1rem;
+  }
+
+  .conteudo-slide h1 {
+    font-size: 1.15rem;
+  }
+
+  .conteudo-slide p {
+    font-size: 0.72rem;
+
+    margin-bottom: 10px;
+  }
+
+  .conteudo-slide a {
+    padding: 7px 12px;
+
+    font-size: 0.75rem;
+  }
+
+  /*
+    Joga os indicadores para cima para não
+    brigarem com o card de informações.
+  */
+
+  .indicadores {
+    top: 14px;
+    right: 14px;
+
+    bottom: auto;
+  }
+
+  .indicador {
+    width: 26px;
+    height: 4px;
+  }
+
+  /* ---------------- FAIXA DA MARCA ---------------- */
+
+  .faixa-marca {
+    height: 52px;
+  }
+
+  .faixa-track {
+    gap: 18px;
+
+    animation-duration: 11s;
+  }
+
+  .logo-faixa {
+    width: 26px;
+  }
+
+  .faixa-track span {
+    font-size: 0.8rem;
+  }
+
+  /* ---------------- EVENTOS ---------------- */
+
+  .eventos {
+    padding: 3.5rem 5%;
+  }
+
+  .eventos-header {
+    margin-bottom: 2rem;
+  }
+
+  .eventos-header h2 {
+    font-size: 1.7rem;
+  }
+
+  .eventos-header p {
+    font-size: 0.8rem;
+  }
+
+  .eventos-grid {
+    gap: 1.5rem;
+  }
+
+  .evento-card {
+    border-radius: 16px;
+  }
+
+  .evento-card img {
+    height: 300px;
+  }
+
+  .evento-info {
+    padding: 1.1rem;
+  }
+
+  .evento-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .evento-info p {
+    font-size: 0.9rem;
+  }
+
+  .evento-info a {
+    padding: 9px 15px;
+
+    font-size: 0.9rem;
+  }
+
+  .ver-mais-eventos {
+    margin-top: 2rem;
+  }
+
+  .ver-mais-eventos a {
+    padding: 10px 18px;
+
+    font-size: 0.9rem;
+  }
+
+  /* ---------------- SOBRE ---------------- */
+
+  .sobre {
+    padding: 3.5rem 5%;
+  }
+
+  .sobre-container {
+    gap: 2rem;
+  }
+
+  .sobre-imagem img {
+    aspect-ratio: 4 / 3;
+
+    border-radius: 18px;
+  }
+
+  .sobre-destaque {
+    font-size: 0.9rem;
+  }
+
+  .sobre-conteudo h2 {
+    font-size: 1.7rem;
+  }
+
+  .sobre-conteudo p {
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+  }
+
+  .btn-sobre {
+    padding: 10px 18px;
+
+    font-size: 0.9rem;
+  }
+
+  /* ---------------- NÚMEROS ---------------- */
+
+  .numeros {
+    padding: 3rem 5%;
+  }
+
+  .numeros-container {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+  }
+
+  .numero-item strong {
+    font-size: 2.3rem;
+  }
+
+  .numero-item span {
+    font-size: 0.9rem;
+  }
+
+  /* ---------------- CONTATO ---------------- */
+
+  .contato {
+    padding: 3.5rem 5%;
+  }
+
+  .contato-container {
+    gap: 2rem;
+  }
+
+  .contato-texto > span {
+    font-size: 0.9rem;
+  }
+
+  .contato-texto h2 {
+    font-size: 1.7rem;
+  }
+
+  .contato-texto p {
+    font-size: 0.9rem;
+  }
+
+  .contato-links {
+    gap: 0.8rem;
+  }
+
+  .contato-item {
+    padding: 1rem;
+
+    gap: 0.8rem;
+  }
+
+  .contato-item i {
+    font-size: 1.5rem;
+  }
+
+  .contato-item strong {
+    font-size: 1rem;
+  }
+
+  .contato-item span {
+    font-size: 0.8rem;
+  }
+
+  /*
+    No celular é melhor não deslocar o card
+    para o lado porque pode chegar perto da borda.
+  */
+
+  .contato-item:hover {
+    transform: none;
+  }
+
+  /* ---------------- FOOTER ---------------- */
+
+  .footer {
+    padding: 2rem 5% 1.2rem;
+  }
+
+  .footer-marca {
+    flex-direction: column;
+
+    gap: 0.5rem;
+  }
+
+  .footer-marca img {
+    width: 40px;
+  }
+
+  .footer-marca span {
+    font-size: 0.9rem;
+  }
+
+  .footer-nav {
+    gap: 0.8rem 1.2rem;
+  }
+
+  .footer-nav a {
+    font-size: 0.85rem;
+  }
+
+  .footer-social a {
+    font-size: 1.3rem;
+  }
+
+  .footer-bottom p {
+    font-size: 0.72rem;
+  }
+}
