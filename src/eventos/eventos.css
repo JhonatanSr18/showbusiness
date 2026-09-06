@@ -90,7 +90,7 @@ body {
 
   background:
     linear-gradient(to right, rgba(20, 15, 30, 0.95), rgba(20, 15, 30, 0.35)),
-    url("img/iguinho-e-lulinha.jpg");
+    url("../img/iguinho-e-lulinha.jpg");
 
   background-size: cover;
   background-position: center;
