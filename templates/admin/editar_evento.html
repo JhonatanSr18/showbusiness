@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Editar Evento</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin/admin.css') }}">
+
+</head>
+
+<body>
+
+  <main class="admin-container">
+
+    <header class="admin-header">
+
+      <div>
+        <span>
+          Fábrica de Entretenimento
+        </span>
+
+        <h1>
+          Editar evento
+        </h1>
+      </div>
+
+      <a href="{{ url_for('admin_dashboard') }}" class="btn-sair">
+        Voltar
+      </a>
+
+    </header>
+
+
+    {% with mensagens = get_flashed_messages(with_categories=true) %}
+
+    {% for categoria, mensagem in mensagens %}
+
+    <div class="flash flash-{{ categoria }}">
+      {{ mensagem }}
+    </div>
+
+    {% endfor %}
+
+    {% endwith %}
+
+
+    <form method="POST" enctype="multipart/form-data" class="form-admin">
+
+      <div class="campo">
+
+        <label for="nome">
+          Nome
+        </label>
+
+        <input type="text" id="nome" name="nome" value="{{ evento.nome }}" required>
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="data">
+          Data
+        </label>
+
+        <input type="date" id="data" name="data" value="{{ evento.data.strftime('%Y-%m-%d') }}" required>
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="cidade">
+          Cidade
+        </label>
+
+        <input type="text" id="cidade" name="cidade" value="{{ evento.cidade }}" required>
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="estado">
+          Estado
+        </label>
+
+        <input type="text" id="estado" name="estado" value="{{ evento.estado }}" maxlength="2" required>
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="link_ingresso">
+          Link do ingresso
+        </label>
+
+        <input type="url" id="link_ingresso" name="link_ingresso" value="{{ evento.link_ingresso or '' }}">
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="descricao">
+          Descrição
+        </label>
+
+        <textarea id="descricao" name="descricao" rows="6">{{ evento.descricao or '' }}</textarea>
+
+      </div>
+
+
+      <div class="campo">
+
+        <label>
+          Imagem atual
+        </label>
+
+        {% if evento.imagem %}
+
+        <img src="{{ url_for('static', filename='uploads/' + evento.imagem) }}" alt="{{ evento.nome }}" style="
+              width: 100%;
+              max-width: 350px;
+              height: 220px;
+              object-fit: cover;
+              border-radius: 12px;
+            ">
+
+        <small>
+          {{ evento.imagem }}
+        </small>
+
+        {% else %}
+
+        <p>
+          Nenhuma imagem cadastrada.
+        </p>
+
+        {% endif %}
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="imagem">
+          Trocar imagem
+        </label>
+
+        <input type="file" id="imagem" name="imagem" accept=".jpg,.jpeg,.png,.webp">
+
+        <small>
+          Deixe vazio para manter a imagem atual.
+        </small>
+
+      </div>
+
+
+      <div class="campo">
+
+        <label>
+
+          <input type="checkbox" name="publicado" {% if evento.publicado %} checked {% endif %}>
+
+          Publicado
+
+        </label>
+
+      </div>
+
+
+      <div class="form-botoes">
+
+        <button type="submit">
+          Salvar alterações
+        </button>
+
+        <a href="{{ url_for('admin_dashboard') }}">
+          Cancelar
+        </a>
+
+      </div>
+
+    </form>
+
+  </main>
+
+</body>
+
+</html>

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eventos | Fábrica de Entretenimento</title>
 
-  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo weltonjr.png) }}">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo Weltonjr.png') }}">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,17 +97,13 @@
                 Todas as cidades
               </option>
 
-              <option value="belem">
-                Belém
+              {% for cidade in cidades %}
+
+              <option value="{{ cidade|lower }}">
+                {{ cidade }}
               </option>
 
-              <option value="uruara">
-                Uruará
-              </option>
-
-              <option value="sao-miguel">
-                São Miguel do Tocantins
-              </option>
+              {% endfor %}
 
             </select>
 
@@ -116,14 +112,15 @@
         </div>
         <!-- GRID DE EVENTOS -->
 
-        <div class="eventos-grid" id="listaEventos">
-          <!-- EVENTO 1 -->
+        <div class="eventos-grid">
 
-          <article class="evento-card" data-cidade="sao-miguel">
+          {% for evento in eventos %}
+
+          <article class="evento-card" data-cidade="{{ evento.cidade|lower }}">
 
             <div class="evento-imagem">
 
-              <img src="{{ url_for('static', filename='img/iguinho-e-lulinha.jpg') }}" alt="Iguinho e Lulinha">
+              <img src="{{ url_for('static', filename='img/' + evento.imagem) }}" alt="{{ evento.nome }}">
 
               <span class="evento-status">
                 Próximo
@@ -135,119 +132,53 @@
             <div class="evento-info">
 
               <span class="evento-data">
-                07 SET
+                {{ evento.data.strftime('%d/%m/%Y') }}
               </span>
 
               <h3>
-                Iguinho e Lulinha
+                {{ evento.nome }}
               </h3>
 
               <p>
                 <i class="bi bi-geo-alt"></i>
 
-                São Miguel do Tocantins - TO
+                {{ evento.cidade }} - {{ evento.estado }}
               </p>
 
-              <a href="https://site-de-ingressos.com/evento" target="_blank" rel="noopener noreferrer">
+
+              {% if evento.link_ingresso %}
+
+              <a href="{{ evento.link_ingresso }}" target="_blank" rel="noopener noreferrer">
                 Comprar ingresso
               </a>
+
+              {% endif %}
 
             </div>
 
           </article>
 
-          <!-- EVENTO 2 -->
+          {% endfor %}
 
-          <article class="evento-card" data-cidade="uruara">
-
-            <div class="evento-imagem">
-
-              <img src="{{ url_for('static', filename='img/Henry-Freitas.jpeg') }}" alt="Henry Freitas">
-
-              <span class="evento-status">
-                Em breve
-              </span>
-
-            </div>
-
-
-            <div class="evento-info">
-
-              <span class="evento-data">
-                17 SET
-              </span>
-
-              <h3>
-                Henry Freitas
-              </h3>
-
-              <p>
-                <i class="bi bi-geo-alt"></i>
-
-                Uruará - PA
-              </p>
-
-              <a href="https://site-de-ingressos.com/evento" target="_blank" rel="noopener noreferrer">
-                Comprar ingresso
-              </a>
-            </div>
-          </article>
-
-          <!-- EVENTO 3 -->
-
-          <article class="evento-card" data-cidade="uruara">
-
-            <div class="evento-imagem">
-
-              <img src="{{ url_for('static', filename='img/rey-vaqueiro.jpg') }}" alt="Rey Vaqueiro">
-
-              <span class="evento-status">
-                Em breve
-              </span>
-
-            </div>
-
-
-            <div class="evento-info">
-
-              <span class="evento-data">
-                18 SET
-              </span>
-
-              <h3>
-                Rey Vaqueiro
-              </h3>
-
-              <p>
-                <i class="bi bi-geo-alt"></i>
-                Uruará - PA
-              </p>
-              <a href="https://site-de-ingressos.com/evento" target="_blank" rel="noopener noreferrer">
-                Comprar ingresso
-              </a>
-            </div>
-          </article>
         </div>
-      </div>
-    </section>
 
-    <!-- CTA -->
-    <section class="cta-eventos">
-      <div class="cta-container">
-        <div>
-          <span>
-            Produção e parcerias
-          </span>
-          <h2>
-            Quer levar um grande evento
-            para sua cidade?
-          </h2>
-        </div>
-        <a href="../index.html#contatos">
-          Falar com a equipe
-        </a>
-      </div>
-    </section>
+        <!-- CTA -->
+        <section class="cta-eventos">
+          <div class="cta-container">
+            <div>
+              <span>
+                Produção e parcerias
+              </span>
+              <h2>
+                Quer levar um grande evento
+                para sua cidade?
+              </h2>
+            </div>
+            <a href="../index.html#contatos">
+              Falar com a equipe
+            </a>
+          </div>
+        </section>
   </main>
 
   <!-- FOOTER -->

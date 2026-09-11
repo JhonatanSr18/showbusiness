@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Painel Administrativo</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin/admin.css') }}">
+
+</head>
+
+<body>
+
+  <main class="admin-container">
+
+    <header class="admin-header">
+
+      <div>
+
+        <span>
+          Fábrica de Entretenimento
+        </span>
+
+        <h1>
+          Painel administrativo
+        </h1>
+
+      </div>
+
+
+      <a href="{{ url_for('admin_logout') }}" class="btn-sair">
+        Sair
+      </a>
+
+    </header>
+
+
+    {% with mensagens = get_flashed_messages(with_categories=true) %}
+
+    {% for categoria, mensagem in mensagens %}
+
+    <div class="flash flash-{{ categoria }}">
+      {{ mensagem }}
+    </div>
+
+    {% endfor %}
+
+    {% endwith %}
+
+
+    <section class="admin-resumo">
+
+      <article class="resumo-card">
+
+        <strong>
+          {{ total_eventos }}
+        </strong>
+
+        <span>
+          Eventos cadastrados
+        </span>
+
+      </article>
+
+
+      <article class="resumo-card">
+
+        <strong>
+          {{ publicados }}
+        </strong>
+
+        <span>
+          Publicados
+        </span>
+
+      </article>
+
+
+      <article class="resumo-card">
+
+        <strong>
+          {{ ocultos }}
+        </strong>
+
+        <span>
+          Ocultos
+        </span>
+
+      </article>
+
+    </section>
+
+
+    <section>
+
+      <div class="admin-acoes">
+
+        <h2>
+          Eventos
+        </h2>
+
+        <a href="{{ url_for('admin_novo_evento') }}" class="btn-principal">
+          + Novo evento
+        </a>
+
+      </div>
+
+
+      <div class="eventos-admin">
+
+        {% for evento in eventos %}
+
+        <article class="evento-admin">
+
+
+          {% if evento.imagem %}
+
+          <img src="{{ url_for('static', filename='uploads/' + evento.imagem) }}" alt="{{ evento.nome }}">
+
+          {% endif %}
+
+
+          <div class="evento-admin-info">
+
+            <h3>
+              {{ evento.nome }}
+            </h3>
+
+            <p>
+              {{ evento.data.strftime('%d/%m/%Y') }}
+            </p>
+
+            <p>
+              {{ evento.cidade }}
+              -
+              {{ evento.estado }}
+            </p>
+
+
+            {% if evento.publicado %}
+
+            <span class="status status-publicado">
+              Publicado
+            </span>
+
+            {% else %}
+
+            <span class="status status-oculto">
+              Oculto
+            </span>
+
+            {% endif %}
+
+          </div>
+
+
+          <div class="evento-admin-botoes">
+
+            <a href="{{ url_for('admin_editar_evento', id=evento.id) }}" class="btn-editar">
+              Editar
+            </a>
+
+
+            <form action="{{ url_for('admin_alterar_status', id=evento.id) }}" method="POST">
+
+              <button type="submit" class="btn-status">
+
+                {% if evento.publicado %}
+
+                Ocultar
+
+                {% else %}
+
+                Publicar
+
+                {% endif %}
+
+              </button>
+
+            </form>
+
+
+            <form action="{{ url_for('admin_excluir_evento', id=evento.id) }}" method="POST" onsubmit="
+                  return confirm(
+                    'Tem certeza que deseja excluir este evento?'
+                  );
+                ">
+
+              <button type="submit" class="btn-excluir">
+                Excluir
+              </button>
+
+            </form>
+
+          </div>
+
+        </article>
+
+        {% else %}
+
+        <p>
+          Nenhum evento cadastrado.
+        </p>
+
+        {% endfor %}
+
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+
+</html>

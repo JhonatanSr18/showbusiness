@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Novo Evento</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin/admin.css') }}">
+
+</head>
+
+<body>
+
+  <main class="admin-container">
+
+    <header class="admin-header">
+
+      <h1>
+        Novo evento
+      </h1>
+
+    </header>
+
+
+    <form method="POST" enctype="multipart/form-data" class="form-admin">
+
+      <div class="campo">
+
+        <label>Nome</label>
+
+        <input type="text" name="nome" required>
+
+      </div>
+
+
+      <div class="campo">
+
+        <label>Data</label>
+
+        <input type="date" name="data" required>
+
+      </div>
+
+
+      <div class="campo">
+
+        <label>Cidade</label>
+
+        <input type="text" name="cidade" required>
+
+      </div>
+
+
+      <div class="campo">
+
+        <label>Estado</label>
+
+        <input type="text" name="estado" maxlength="2" required>
+
+      </div>
+
+
+      <div class="campo">
+
+        <label>Imagem</label>
+
+        <input type="file" name="imagem" accept=".jpg,.jpeg,.png,.webp" required>
+
+      </div>
+
+
+      <div class="campo">
+
+        <label>
+          Link do ingresso
+        </label>
+
+        <input type="url" name="link_ingresso">
+
+      </div>
+
+
+      <div class="campo">
+
+        <label>
+          Descrição
+        </label>
+
+        <textarea name="descricao" rows="6"></textarea>
+
+      </div>
+
+
+      <div class="campo">
+
+        <label>
+
+          <input type="checkbox" name="publicado" checked>
+
+          Publicado
+
+        </label>
+
+      </div>
+
+
+      <div class="form-botoes">
+
+        <button type="submit">
+          Salvar evento
+        </button>
+
+        <a href="{{ url_for('admin_dashboard') }}">
+          Cancelar
+        </a>
+
+      </div>
+
+    </form>
+
+  </main>
+
+</body>
+
+</html>
