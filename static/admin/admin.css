@@ -401,3 +401,20 @@ body {
     width: 100%;
   }
 }
+
+.voltar-site {
+  display: inline-block;
+  margin-top: 1.2rem;
+
+  color: var(--cinza);
+
+  text-decoration: none;
+
+  font-size: 0.9rem;
+
+  transition: 0.3s ease;
+}
+
+.voltar-site:hover {
+  color: var(--verde);
+}

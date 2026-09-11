@@ -1482,3 +1482,14 @@ body {
     font-size: 0.72rem;
   }
 }
+
+.btn-admin {
+  color: #7f7f7f;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-admin:hover {
+  color: var(--cor-secundaria);
+}
