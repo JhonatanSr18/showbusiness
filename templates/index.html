@@ -38,39 +38,48 @@
     <div class="carousel">
       <div class="slides">
 
-        <article class="slide ativo">
-          <img src="{{ url_for('static', filename='img/iguinho-e-lulinha.jpg') }}" alt="evento 1">
+        {% for evento in eventos %}
+
+        <article class="slide {% if loop.first %}ativo{% endif %}">
+
+          <img src="{{ url_for('static', filename='uploads/' + evento.imagem) }}" alt="{{ evento.nome }}">
+
           <div class="conteudo-slide">
-            <h1>Iguinho e Lulinha</h1>
-            <p>07 de Setembro • São miguel do Tocantins - TO</p>
-            <a href="#">Saiba mais</a>
+
+            <h1>
+              {{ evento.nome }}
+            </h1>
+
+            <p>
+              {{ evento.data.strftime('%d de %B') }}
+              •
+              {{ evento.cidade }} - {{ evento.estado }}
+            </p>
+
+            {% if evento.link_ingresso %}
+
+            <a href="{{ evento.link_ingresso }}" target="_blank">
+              Ver ingressos
+            </a>
+
+            {% endif %}
+
           </div>
+
         </article>
 
-        <article class="slide">
-          <img src="{{ url_for('static', filename='img/Henry-Freitas.jpeg') }}" alt="evento 2">
-          <div class="conteudo-slide">
-            <h1>Henry Freitas</h1>
-            <p>17 de Setembro • Uruará - PA</p>
-            <a href="#">Saiba mais</a>
-          </div>
-        </article>
-
-        <article class="slide">
-          <img src="{{ url_for('static', filename='img/rey-vaqueiro.jpg') }}" alt="evento 3">
-          <div class="conteudo-slide">
-            <h1>Rey Vaqueiro</h1>
-            <p>18 de Setembro • Uruará - PA</p>
-            <a href="#">Saiba mais</a>
-          </div>
-        </article>
+        {% endfor %}
 
       </div>
 
       <div class="indicadores">
-        <button class="indicador ativo"></button>
-        <button class="indicador"></button>
-        <button class="indicador"></button>
+
+        {% for evento in eventos %}
+
+        <button class="indicador {% if loop.first %}ativo{% endif %}" aria-label="Evento {{ loop.index }}"></button>
+
+        {% endfor %}
+
       </div>
     </div>
   </section>
@@ -117,49 +126,53 @@
     </div>
 
     <div class="eventos-grid">
+
+      {% for evento in eventos %}
+
       <article class="evento-card">
-        <img src="{{ url_for('static', filename='img/iguinho-e-lulinha.jpg') }}" alt="evento 1">
+
+        <img src="{{ url_for('static', filename='uploads/' + evento.imagem) }}" alt="{{ evento.nome }}">
 
         <div class="evento-info">
-          <span class="evento-data">18 SET</span>
 
-          <h3>Iguinho e Lulinha</h3>
+          <span class="evento-data">
+            {{ evento.data.strftime('%d %b')|upper }}
+          </span>
 
-          <p>Uruará - PA</p>
+          <h3>
+            {{ evento.nome }}
+          </h3>
 
-          <a href="#">Ver evento</a>
+          <p>
+            {{ evento.cidade }} - {{ evento.estado }}
+          </p>
+
+          {% if evento.link_ingresso %}
+
+          <a href="{{ evento.link_ingresso }}" target="_blank" rel="noopener noreferrer">
+            Comprar ingresso
+          </a>
+
+          {% endif %}
+
         </div>
+
       </article>
-      <article class="evento-card">
-        <img src="{{ url_for('static', filename='img/Henry-Freitas.jpeg') }}" alt="evento 1">
 
-        <div class="evento-info">
-          <span class="evento-data">18 SET</span>
+      {% else %}
 
-          <h3>Henry Freitas</h3>
+      <p class="sem-eventos">
+        Nenhum evento disponível no momento.
+      </p>
 
-          <p>Uruará - PA</p>
+      {% endfor %}
 
-          <a href="#">Ver evento</a>
-        </div>
-      </article>
-      <article class="evento-card">
-        <img src="{{ url_for('static', filename='img/rey-vaqueiro.jpg') }}" alt="evento 1">
-
-        <div class="evento-info">
-          <span class="evento-data">18 SET</span>
-
-          <h3>Rey Vaqueiro</h3>
-
-          <p>Uruará - PA</p>
-
-          <a href="#">Ver evento</a>
-        </div>
-      </article>
     </div>
 
     <div class="ver-mais-eventos">
-      <a href="{{ url_for('eventos') }}">Ver mais eventos</a>
+      <a href="{{ url_for('eventos') }}">
+        Ver mais eventos
+      </a>
     </div>
   </section>
   <section id="sobre" class="sobre">
@@ -280,7 +293,7 @@
         <a href="#eventos">Eventos</a>
         <a href="#sobre">Sobre</a>
         <a href="#contato">Contato</a>
-        <a href="{{ url_for('admin_dashboard') }}">
+        <a href="{{ url_for('admin_dashboard') }}" target="_blank" rel="noopener noreferrer">
           Administração
         </a>
       </nav>

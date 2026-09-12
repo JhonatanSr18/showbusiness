@@ -429,19 +429,15 @@ body {
 
 .footer {
   width: 100%;
-
   padding: 2.5rem 5% 1.5rem;
-
   background-color: #0f0d15;
 }
 
 .footer-container {
   max-width: 1400px;
-
   margin: 0 auto;
 
   display: flex;
-
   align-items: center;
   justify-content: space-between;
 
@@ -450,9 +446,7 @@ body {
 
 .footer-marca {
   display: flex;
-
   align-items: center;
-
   gap: 0.8rem;
 }
 
@@ -462,19 +456,16 @@ body {
 
 .footer-marca span {
   color: white;
-
   font-weight: 700;
 }
 
 .footer-nav {
   display: flex;
-
   gap: 1.5rem;
 }
 
 .footer-nav a {
   color: #bdbdbd;
-
   text-decoration: none;
 
   transition: 0.3s ease;
@@ -486,25 +477,25 @@ body {
 
 .footer-social {
   display: flex;
-
   gap: 1rem;
 }
 
 .footer-social a {
   color: white;
-
   font-size: 1.4rem;
+
+  transition: 0.3s ease;
 }
 
 .footer-social a:hover {
   color: var(--cor-secundaria);
+  transform: translateY(-3px);
 }
 
 .footer-bottom {
   max-width: 1400px;
 
   margin: 2rem auto 0;
-
   padding-top: 1.5rem;
 
   border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -514,7 +505,6 @@ body {
 
 .footer-bottom p {
   color: #7f7f7f;
-
   font-size: 0.85rem;
 }
 
@@ -591,52 +581,70 @@ body {
   }
 
   /* FOOTER */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
 
-  .footer-container {
-    flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+    }
 
-    text-align: center;
+    .footer-marca {
+      justify-content: center;
+    }
+
+    .footer-nav {
+      width: 100%;
+
+      justify-content: center;
+      flex-wrap: wrap;
+
+      gap: 1rem 1.5rem;
+    }
+
+    .footer-social {
+      justify-content: center;
+    }
+
+    .footer-bottom {
+      margin-top: 1.5rem;
+    }
   }
 
-  .footer-nav {
-    flex-wrap: wrap;
+  @media (max-width: 480px) {
+    .btns-header {
+      gap: 0.8rem;
 
-    justify-content: center;
-  }
-}
+      flex-wrap: wrap;
+    }
 
-@media (max-width: 480px) {
-  .btns-header {
-    gap: 0.8rem;
+    .btns-header a {
+      font-size: 0.75rem;
+    }
 
-    flex-wrap: wrap;
-  }
+    .catalogo {
+      padding: 3.5rem 5%;
+    }
 
-  .btns-header a {
-    font-size: 0.75rem;
-  }
+    .catalogo-header h2 {
+      font-size: 1.7rem;
+    }
 
-  .catalogo {
-    padding: 3.5rem 5%;
-  }
+    .evento-imagem img {
+      height: 290px;
+    }
 
-  .catalogo-header h2 {
-    font-size: 1.7rem;
-  }
+    .evento-info h3 {
+      font-size: 1.2rem;
+    }
 
-  .evento-imagem img {
-    height: 290px;
-  }
+    .cta-eventos {
+      padding: 3rem 5%;
+    }
 
-  .evento-info h3 {
-    font-size: 1.2rem;
-  }
-
-  .cta-eventos {
-    padding: 3rem 5%;
-  }
-
-  .cta-container h2 {
-    font-size: 1.6rem;
+    .cta-container h2 {
+      font-size: 1.6rem;
+    }
   }
 }

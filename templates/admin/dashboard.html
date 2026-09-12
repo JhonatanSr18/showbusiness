@@ -9,33 +9,37 @@
 
   <title>Painel Administrativo</title>
 
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo Weltonjr.png') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='admin/admin.css') }}">
+
+  <!-- FONTS -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-
   <main class="admin-container">
 
     <header class="admin-header">
-
       <div>
-
         <span>
           Fábrica de Entretenimento
         </span>
-
         <h1>
           Painel administrativo
         </h1>
-
       </div>
-
-
-      <a href="{{ url_for('admin_logout') }}" class="btn-sair">
-        Sair
-      </a>
-
+      <div class="admin-header-acoes">
+        <a href="{{ url_for('home') }}" target="_blank" rel="noopener noreferrer" class="btn-ver-site">
+          Ver site
+        </a>
+        <a href="{{ url_for('admin_logout') }}" class="btn-sair">
+          Sair
+        </a>
+      </div>
     </header>
 
 

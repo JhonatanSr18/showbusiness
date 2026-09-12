@@ -8,7 +8,7 @@
 
   <title>Sobre | Fábrica de Entretenimento</title>
 
-  <link rel="icon" type="image/png" href="../img/logo weltonjr.png">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo Weltonjr.png') }}">
 
   <!-- Fonte -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="./sobre.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='sobre/sobre.css') }}">
 
 </head>
 
@@ -29,23 +29,28 @@
   <!--  HEADER -->
   <header class="header-menu">
     <div class="logo-empresa">
-      <a href="../index.html">
-        <img src="../img/logo weltonjr.png" alt="Fábrica de Entretenimento">
+      <a href="{{ url_for('home') }}">
+        <img src="{{ url_for('static', filename='img/logo Weltonjr.png') }}" alt="Fábrica de Entretenimento">
       </a>
     </div>
     <nav class="btns-header">
-      <a href="../index.html">
+
+      <a href="{{ url_for('home') }}">
         Início
       </a>
-      <a href="../eventos/eventos.html">
+
+      <a href="{{ url_for('eventos') }}">
         Eventos
       </a>
-      <a href="sobre.html" class="ativo">
+
+      <a href="{{ url_for('sobre') }}" class="ativo">
         Sobre
       </a>
-      <a href="../index.html#contatos">
+
+      <a href="{{ url_for('home') }}#contato">
         Contato
       </a>
+
     </nav>
   </header>
   <main>
@@ -73,7 +78,7 @@
       <div class="historia-container">
 
         <div class="historia-imagem">
-          <img src="../img/sobre-nos-img.png" alt="Evento produzido pela Fábrica de Entretenimento">
+          <img src="{{ url_for('static', filename='img/sobre-nos-img.png') }}" alt="Evento produzido pela Fábrica de Entretenimento">
         </div>
 
 
@@ -137,154 +142,101 @@
               Criamos produções pensadas para gerar emoção,
               lembrança e conexão com o público.
             </p>
-
           </article>
-
-
-
           <article class="valor-card">
-
             <i class="bi bi-lightning-charge"></i>
-
             <h3>
               Impacto
             </h3>
-
             <p>
               Desenvolvemos experiências marcantes e inovadoras
               que buscam superar expectativas.
             </p>
-
           </article>
-
-
-
           <article class="valor-card">
-
             <i class="bi bi-people"></i>
-
             <h3>
               Conexão
             </h3>
-
             <p>
               Aproximamos artistas, marcas, parceiros e público
               através do entretenimento.
             </p>
-
           </article>
-
-
         </div>
-
       </div>
-
     </section>
-
     <!-- NÚMEROS -->
-
     <section class="numeros">
       <div class="numeros-container">
-
         <div class="numero-item">
-
           <strong>
             +50
           </strong>
-
           <span>
             Eventos realizados
           </span>
-
         </div>
-
         <div class="numero-item">
-
           <strong>
             +20
           </strong>
-
           <span>
             Cidades atendidas
           </span>
-
         </div>
-
         <div class="numero-item">
-
           <strong>
             +30
           </strong>
-
           <span>
             Artistas
           </span>
-
         </div>
-
         <div class="numero-item">
-
           <strong>
             +100 mil
           </strong>
-
           <span>
             Pessoas alcançadas
           </span>
-
         </div>
       </div>
     </section>
-
     <!-- MANIFESTO -->
-
     <section class="manifesto">
-
       <div class="manifesto-container">
-
         <span>
           Nossa essência
         </span>
-
         <h2>
           Não apenas produzimos eventos —
           construímos experiências.
         </h2>
-
         <p>
           Nosso propósito é entregar produções de alto nível,
           inovadoras e impactantes, que ultrapassem expectativas
           e elevem o padrão do entretenimento.
         </p>
-
         <a href="../index.html#contatos">
           Fale com nossa equipe
         </a>
-
       </div>
     </section>
   </main>
-
-
   <!-- FOOTER -->
-
   <footer class="footer">
-
     <div class="footer-container">
-
       <div class="footer-marca">
-
         <img src="../img/logo weltonjr.png" alt="Fábrica de Entretenimento">
         <span>
           Fábrica de Entretenimento
         </span>
       </div>
       <nav class="footer-nav">
-
         <a href="../index.html">
           Início
         </a>
-
         <a href="../eventos/eventos.html">
           Eventos
         </a>
@@ -296,17 +248,13 @@
         </a>
       </nav>
       <div class="footer-social">
-
         <a href="#">
           <i class="bi bi-instagram"></i>
         </a>
-
         <a href="#">
           <i class="bi bi-whatsapp"></i>
         </a>
-
       </div>
-
     </div>
     <div class="footer-bottom">
       <p>

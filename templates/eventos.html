@@ -27,30 +27,29 @@
 
     <div class="logo-empresa">
       <a href="../index.html">
-        <img src="{{ url_for('static', filename='img/logo weltonjr.png) }}" alt="Logo Fábrica de Entretenimento">
+        <img src="{{ url_for('static', filename='img/logo Weltonjr.png') }}" alt="Logo Fábrica de Entretenimento">
       </a>
     </div>
 
     <nav class="btns-header">
 
-      <a href="../index.html">
+      <a href="{{ url_for('home') }}">
         Início
       </a>
 
-      <a href="eventos.html" class="ativo">
+      <a href="{{ url_for('eventos') }}" class="ativo">
         Eventos
       </a>
 
-      <a href="../sobre/sobre.html">
+      <a href="{{ url_for('sobre') }}">
         Sobre
       </a>
 
-      <a href="../index.html#contatos">
+      <a href="{{ url_for('home') }}#contato">
         Contato
       </a>
 
     </nav>
-
   </header>
   <main>
 
@@ -112,15 +111,19 @@
         </div>
         <!-- GRID DE EVENTOS -->
 
-        <div class="eventos-grid">
+        <div class="eventos-grid" id="listaEventos">
 
           {% for evento in eventos %}
 
-          <article class="evento-card" data-cidade="{{ evento.cidade|lower }}">
+          <article class="evento-card" data-nome="{{ evento.nome|lower }}" data-cidade="{{ evento.cidade|lower }}">
 
             <div class="evento-imagem">
 
-              <img src="{{ url_for('static', filename='img/' + evento.imagem) }}" alt="{{ evento.nome }}">
+              {% if evento.imagem %}
+
+              <img src="/static/uploads/{{ evento.imagem }}" alt="{{ evento.nome }}">
+
+              {% endif %}
 
               <span class="evento-status">
                 Próximo
@@ -132,7 +135,7 @@
             <div class="evento-info">
 
               <span class="evento-data">
-                {{ evento.data.strftime('%d/%m/%Y') }}
+                {{ evento.data.day }}/{{ evento.data.month }}/{{ evento.data.year }}
               </span>
 
               <h3>
@@ -157,6 +160,12 @@
             </div>
 
           </article>
+
+          {% else %}
+
+          <p>
+            Nenhum evento disponível no momento.
+          </p>
 
           {% endfor %}
 
@@ -186,39 +195,25 @@
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-marca">
-        <img src="{{ url_for('static', filename='img/logo weltonjr.png) }}" alt="Fábrica de Entretenimento">
-        <span>
-          Fábrica de Entretenimento
-        </span>
+        <img src="{{ url_for('static', filename='img/logo Weltonjr.png') }}" alt="Logo da Fábrica de Entretenimento">
+        <span>Fábrica de Entretenimento</span>
       </div>
       <nav class="footer-nav">
-        <a href="{{ url_for('home') }}">
-          Início
-        </a>
-        <a href="{{ url_for('eventos') }}">
-          Eventos
-        </a>
-        <a href="{{ url_for('sobre') }}">
-          Sobre
-        </a>
-        <a href="{{ url_for('home') }}#contato">
-          Contato
+        <a href="#inicio">Início</a>
+        <a href="#eventos">Eventos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+        <a href="{{ url_for('admin_dashboard') }}" target="_blank" rel="noopener noreferrer">
+          Administração
         </a>
       </nav>
       <div class="footer-social">
-        <a href="#">
-          <i class="bi bi-instagram"></i>
-        </a>
-        <a href="#">
-          <i class="bi bi-whatsapp"></i>
-        </a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-whatsapp"></i></a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>
-        © 2026 Fábrica de Entretenimento.
-        Todos os direitos reservados.
-      </p>
+      <p>© 2026 Fábrica de Entretenimento. Todos os direitos reservados.</p>
     </div>
   </footer>
   <script src="./eventos.js"></script>
