@@ -362,6 +362,31 @@ body {
   color: var(--cor-texto);
 }
 
+/* =========================   NUMEROS    =========================== */
+
+.numeros {
+  padding: 3rem 6%;
+}
+
+.numeros-container {
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 2.5rem 1rem;
+}
+
+.numero-item strong {
+  font-size: 2.4rem;
+}
+
+/*
+    Tiramos as divisórias porque em duas linhas
+    elas podem ficar em posições estranhas.
+  */
+
+.numero-item::after {
+  display: none;
+}
+
 /* ========================================
    CTA
 ========================================= */
