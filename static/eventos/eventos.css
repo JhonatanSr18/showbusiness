@@ -277,6 +277,13 @@ body {
   transform: scale(1.04);
 }
 
+.sem-eventos {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  color: #bff205;
+}
 /* ========================================
    STATUS
 ========================================= */
