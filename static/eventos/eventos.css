@@ -150,7 +150,7 @@ body {
    CABEÇALHO DO CATÁLOGO
 ========================================= */
 
-.catalogo-header {
+.der {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -159,7 +159,7 @@ body {
   text-align: center;
 }
 
-.catalogo-header p {
+.der p {
   color: #bff205;
 }
 
@@ -169,7 +169,7 @@ body {
   font-weight: 700;
 }
 
-.catalogo-header h2 {
+.der h2 {
   margin-top: 0.5rem;
   color: white;
   font-size: 2.2rem;
@@ -216,6 +216,13 @@ body {
   gap: 2rem;
 }
 
+.sem-eventos {
+  grid-column: 1 / -1;
+  width: 100%;
+  text-align: center;
+  color: var(--cor-secundaria);
+  font-weight: 600;
+}
 /* ========================================
    CARD
 ========================================= */
@@ -335,32 +342,19 @@ body {
 
 .evento-info a {
   align-self: flex-start;
-
   margin-top: auto;
-
   padding: 10px 18px;
-
   border: 2px solid var(--cor-secundaria);
-
   border-radius: 8px;
-
   color: var(--cor-secundaria);
-
   text-decoration: none;
-
   transition: 0.3s ease;
 }
 
 .evento-info a:hover {
   background-color: var(--cor-secundaria);
-
   color: var(--cor-texto);
 }
-
-/*
-    Tiramos as divisórias porque em duas linhas
-    elas podem ficar em posições estranhas.
-  */
 
 .numero-item::after {
   display: none;
@@ -505,7 +499,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .catalogo-header {
+  .der {
     flex-direction: column;
 
     align-items: flex-start;
@@ -628,7 +622,7 @@ body {
       padding: 3.5rem 5%;
     }
 
-    .catalogo-header h2 {
+    .der h2 {
       font-size: 1.7rem;
     }
 
