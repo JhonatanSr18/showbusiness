@@ -146,6 +146,12 @@ body {
   margin: 0 auto;
 }
 
+.sem-eventos p {
+  color: #bff205;
+
+  text-align: center;
+}
+
 /* ========================================
    CABEÇALHO DO CATÁLOGO
 ========================================= */
