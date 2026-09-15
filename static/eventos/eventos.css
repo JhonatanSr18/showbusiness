@@ -146,6 +146,24 @@ body {
   margin: 0 auto;
 }
 
+.catalogo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.catalogo-header h2 {
+  color: #fff;
+}
+
+.filtros {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
 /* ========================================
    CABEÇALHO DO CATÁLOGO
 ========================================= */
@@ -552,6 +570,23 @@ body {
 
   .evento-imagem img {
     height: 350px;
+  }
+
+  @media (max-width: 768px) {
+    .catalogo-header {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .filtros {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    .filtros input,
+    .filtros select {
+      width: 100%;
+    }
   }
 
   /* CTA */
