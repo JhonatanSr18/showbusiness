@@ -237,6 +237,7 @@ body {
 .sem-eventos {
   grid-column: 1 / -1;
   width: 100%;
+  margin-top: 2.5rem;
   text-align: center;
   color: var(--cor-secundaria);
   font-weight: 600;
