@@ -170,7 +170,7 @@
     </div>
 
     <div class="ver-mais-eventos">
-      <a href="{{ url_for('eventos.html') }}">
+      <a href="{{ url_for('eventos') }}">
         Ver mais eventos
       </a>
     </div>
@@ -289,13 +289,11 @@
         <span>Fábrica de Entretenimento</span>
       </div>
       <nav class="footer-nav">
-        <a href="#inicio">Início</a>
-        <a href="#eventos">Eventos</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#contato">Contato</a>
-        <a href="{{ url_for('admin_dashboard') }}" target="_blank" rel="noopener noreferrer">
-          Administração
-        </a>
+        <a href="{{ url_for('home') }}">Início</a>
+        <a href="{{ url_for('eventos') }}">Eventos</a>
+        <a href="{{ url_for('sobre') }}">Sobre</a>
+        <a href="#contatos">Contato</a>
+        <a href="{{ url_for('admin_dashboard') }}" target="_blank" rel="noopener noreferrer">Administração</a>
       </nav>
       <div class="footer-social">
         <a href="#"><i class="bi bi-instagram"></i></a>
