@@ -142,7 +142,7 @@ body {
 
 .catalogo-container {
   max-width: 1400px;
-
+  text-align: center;
   margin: 0 auto;
 }
 
@@ -277,14 +277,9 @@ body {
   transform: scale(1.04);
 }
 
-.sem-eventos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  font-size: medium;
-
+.sem-eventos p {
   color: #bff205;
+  background-color: aqua;
 }
 /* ========================================
    STATUS
