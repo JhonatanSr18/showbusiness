@@ -280,7 +280,9 @@ body {
 .sem-eventos {
   display: flex;
   justify-content: center;
-  text-align: center;
+  align-items: center;
+  padding: 10px;
+  font-size: medium;
 
   color: #bff205;
 }
