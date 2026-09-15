@@ -201,10 +201,10 @@
         <span>Fábrica de Entretenimento</span>
       </div>
       <nav class="footer-nav">
-        <a href="#inicio">Início</a>
-        <a href="#eventos">Eventos</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#contato">Contato</a>
+        <a href="{{ url_for('templates', filename='index.html') }}">Início</a>
+        <a href="{{ url_for('templates', filename='eventos.html') }}">Eventos</a>
+        <a href="{{ url_for('templates', filename='sobre.html') }}">Sobre</a>
+        <a href="{{ url_for('templates', filename='index.html#contato') }}">Contato</a>
         <a href="{{ url_for('admin_dashboard') }}" target="_blank" rel="noopener noreferrer">
           Administração
         </a>
