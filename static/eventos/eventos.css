@@ -381,12 +381,12 @@ body {
 }
 
 .cta-container {
-  max-width: 100vw;
+  max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr auto;
+  align-items: center;
   gap: 2rem;
-  text-align: center;
 }
 
 .cta-container span {
@@ -567,10 +567,23 @@ body {
 
   /* CTA */
 
-  .cta-container {
-    flex-direction: column;
+  @media (max-width: 768px) {
+    .cta-container {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
 
-    align-items: flex-start;
+    .cta-container h2 {
+      max-width: 100%;
+      font-size: clamp(1.8rem, 8vw, 2.6rem);
+      line-height: 1.15;
+    }
+
+    .cta-container > a {
+      width: 100%;
+      text-align: center;
+      padding: 14px 20px;
+    }
   }
 
   /* FOOTER */
